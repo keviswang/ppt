@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+		<title>reveal.js</title>
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h2>微服务</h2>
+					<p>
+                    	<small>2017.5.17 @NBCB</small>
+                        <small>微信号: keviswang</small>
+                    </p>
+				</section>
+
+				<section>
+					<h2>Service</h2>
+					<p>业务: What do you want</p>
+					<p>服务: What can i do for you</p>
+				</section>
+
+				<section>
+					<h2>一个简单的例子</h2>
+					<img src="images/16.png">
+				</section>
+
+				<section>
+					<h3>基础的业务逻辑</h3>
+					<img src="images/1.png">
+				</section>
+
+				<section>
+					<h3>网络接口层</h3>
+					<img src="images/2.png">
+				</section>
+
+				<section>
+					<h5>添加日志功能</h5>
+					<section>
+					<img src="images/3.png">
+					</section>
+					<section>
+					<img src="images/4.png">
+					</section>
+				</section>
+
+				<section>
+					<p>metrics</p>
+					<img src="images/7.png">
+				</section>
+
+				<section>
+					<section>
+						<h3>然后就变成了。。。</h3>
+						<img src="images/6.png">
+					</section>
+					<section>
+						<h4>最后就成了。。。</h4>
+						<img src="images/8.png">
+						<p>这样实施微服务的成本就大大提高了。。。</p>
+					</section>
+				</section>
+
+				<section>
+					<h2>个人采用的模型架构（类似koajs的中间件设计思路）</h2>
+					<img src="images/9.png">
+				</section>
+
+				<section>
+					<section>
+					<h2>原先的例子就变成了.</h2>
+					<img src="images/10.png">
+					</section>
+
+					<section>
+						<img src="images/11.png">
+					</section>
+
+					<section>
+						<img src="images/12.png">
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Endpoint</h2>
+					<p>参考go下的大框架，java下有比较成熟的netfix开源的spring cloud套件</p>
+					<img src="images/13.png">
+				</section>
+
+				<section>
+					<h2>对接入层进行限流等</h2>
+					<img src="images/14.png">
+				</section>
+
+				<section>
+					<h2>采用rpc或http通信</h2>
+					<p>建议采用rpc，实际使用性能更好点</p>
+					<img src="images/15.png">
+				</section>
+
+				<section>
+					<h5>相关分享</h5>
+					<p> 服务注册发现: consul > etcd > zookeeper</p>
+					<p> API网关: nginx, kong(基于nginx和lua)</p>
+					<p>当然spring cloud套件是一个可以快速实现微服务的框架，但是有太多magic的地方，不太容易定位到细节问题</p>
+				</section>
+				<section>
+					<h2>TODO</h2>
+					<p>Metrics: Prometheus接入</p>
+					<p>分布式跟踪: Opentracing</p>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
